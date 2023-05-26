@@ -73,3 +73,6 @@ Future plans
 * To implement zooming functionality in the window
 * To implement panning functionality in the window
 * To add a webpage, that provides a more interactive and comfortable display of the tree, along with other additional features such as, directly building the tree in a GUI environment, and then providing the various tree traversals so they can be reconstructed in other programs.
+***
+# Extra functions
+There are a lot of helper functions written in `trees.h`, go through them if you wanna know more.
