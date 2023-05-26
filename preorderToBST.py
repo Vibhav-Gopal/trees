@@ -207,6 +207,7 @@ def renderLayer(nodesInLayer: list, spreadFactor: float, layerNum: int, layerDis
 
 padToDepth(root)
 layers = layeriseNodes()
+
 for layerNum in range(len(layers)):
     renderLayer(nodesInLayer=layers[layerNum],
                 spreadFactor=5, layerNum=layerNum, layerDist=50)
