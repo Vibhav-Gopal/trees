@@ -5,7 +5,7 @@ This repo, contains C++ code, to take an array of integers, convert it to a Bina
 # Numbers to Tree
 You have an array of integers, which you want to convert to an optimised Binary Search Tree, how do you do it?  
 ## Dependencies
-* `PyQt6` for generating GUI tree
+* Python Dependency - `PyQt6` for generating GUI tree 
 ## Procedure
 * Find the line that says 
 ```cpp
