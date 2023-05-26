@@ -34,7 +34,7 @@ int main()
   cout << "Preorder: ";
   preorderCommas(parent);
   cout << endl;
-  cout << "After balancing, the inorder and preorder traversals are \n";
+  cout << "\nAfter balancing, the inorder and preorder traversals are \n";
   cout << "Inorder: ";
   inorder(balancedTree);
   cout << endl;
@@ -58,10 +58,5 @@ int main()
   {
     insertNode(newTree, preordered[i]);
   }
-  cout << "After rebuilding the tree\n";
-  preorder(newTree);
-  cout << endl;
-  inorder(newTree);
-  cout << endl;
   cout << getDepth(newTree) << " is the depth\n";
 }
