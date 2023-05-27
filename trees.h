@@ -74,9 +74,19 @@ void inorderToLinkedList(node *root, ll_node *head)
     if (root != NULL)
     {
         inorderToLinkedList(root->left, head);
-        appendToLinkedList(head, root->data);
+        ll_node* temp=(ll_node*)malloc(sizeof(ll_node));
+        temp->data=root->data;
+        temp->next=NULL;
+        if(head==NULL)
+        head=temp;
+        else
+        {
+            while(head!=NULL)
+            head=head->next;
+            head=temp;
+        }
 
-        inorderToLinkedList(root->right, head);
+        inorderToLinkedList(root->right, head->next);
     }
 }
 
