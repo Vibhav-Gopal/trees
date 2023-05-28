@@ -14,6 +14,7 @@ struct ll_node
     int data;
     ll_node *next;
 };
+ll_node *memory_pointer = NULL;
 void preorder(node *root)
 {
     if (root != NULL)
@@ -59,28 +60,39 @@ void postorder(node *root)
 
 void appendToLinkedList(ll_node *tmp, int val)
 {
-    while (tmp->next != NULL)
+    if (memory_pointer == NULL)
     {
+        while (tmp->next != NULL)
+        {
+            tmp = tmp->next;
+        }
+        memory_pointer = tmp;
+        tmp->next = (ll_node *)malloc(sizeof(ll_node));
         tmp = tmp->next;
+        tmp->next = NULL;
+        tmp->data = val;
     }
-    tmp->next = (ll_node *)malloc(sizeof(ll_node));
-    tmp = tmp->next;
-    tmp->next = NULL;
-    tmp->data = val;
+    else
+    {
+        while (memory_pointer->next != NULL)
+        {
+            memory_pointer = memory_pointer->next;
+        }
+        tmp = memory_pointer;
+        tmp->next = (ll_node *)malloc(sizeof(ll_node));
+        tmp = tmp->next;
+        tmp->next = NULL;
+        tmp->data = val;
+    }
 }
 
 void inorderToLinkedList(node *root, ll_node *head)
 {
     if (root != NULL)
     {
-        
+
         inorderToLinkedList(root->left, head);
-        ll_node* temp=(ll_node*)malloc(sizeof(ll_node));
-        temp->data=root->data;
-        temp->next=NULL;
-        auto tmp = head;
-        while(tmp->next!=NULL) tmp = tmp->next;
-        tmp->next = temp;
+        appendToLinkedList(head, root->data);
         inorderToLinkedList(root->right, head->next);
     }
 }
